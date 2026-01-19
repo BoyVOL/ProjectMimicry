@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dip3nkioqiwhc"]
+
+[ext_resource type="Script" uid="uid://ocdra8ykfjf4" path="res://addons/autoscaling_viewport_module/AutoscalingViewport/AutoscalingViewport.cs" id="1_iqidg"]
+[ext_resource type="PackedScene" uid="uid://ctxlrsqk0lksg" path="res://TestScenes/TestEnviroment.tscn" id="2_bdp72"]
+
+[node name="Control" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AutoscalingViewport" type="SubViewport" parent="SubViewportContainer" node_paths=PackedStringArray("ScalingSource")]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+script = ExtResource("1_iqidg")
+ScalingSource = NodePath("../..")
+metadata/_custom_type_script = "uid://ocdra8ykfjf4"
+
+[node name="TestEnviroment" parent="SubViewportContainer/AutoscalingViewport" instance=ExtResource("2_bdp72")]
