@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://fk3fiflfldnn"]
 
 [ext_resource type="Script" uid="uid://btgm8j84i1q01" path="res://TestScenes/PlayerCharacter.cs" id="1_7wbrp"]
-[ext_resource type="Texture2D" uid="uid://i3iol6o36c8r" path="res://icon.svg" id="1_osxii"]
+[ext_resource type="Texture2D" uid="uid://b14v4bf7agsna" path="res://player model placeholder.png" id="2_7wbrp"]
 
 [sub_resource type="Gradient" id="Gradient_7wbrp"]
 offsets = PackedFloat32Array(0, 0.753247)
@@ -17,8 +17,10 @@ script = ExtResource("1_7wbrp")
 MovementSpeed = 100.0
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(3, -1)
-texture = ExtResource("1_osxii")
+texture_filter = 3
+position = Vector2(0, 41)
+scale = Vector2(11.3108, 11.0707)
+texture = ExtResource("2_7wbrp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
