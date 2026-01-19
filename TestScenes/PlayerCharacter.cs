@@ -9,25 +9,32 @@ public partial class PlayerCharacter : Node2D
     [Export]public String EventMoveLeft = "MoveLeft";
     [Export]public String EventMoveRight = "MoveRight";
 
-    public override void _Input(InputEvent @event)
+    [Export]float MovementSpeed = 10;
+
+    public Vector2 GetMovementVector()
     {
-        base._Input(@event);
-        if (@event.IsActionPressed(EventMoveUp))
-        {
-            GD.Print("Up");
+        Vector2 Result = Vector2.Zero;
+        
+        if (Input.IsActionPressed(EventMoveLeft)){
+            Result.X -= 1;
         }
-        if (@event.IsActionPressed(EventMoveDowm))
-        {
-            GD.Print("Down");
+        if (Input.IsActionPressed(EventMoveRight)){
+            Result.X += 1;
         }
-        if (@event.IsActionPressed(EventMoveLeft))
-        {
-            GD.Print("Left");
+        if (Input.IsActionPressed(EventMoveUp)){
+            Result.Y -= 1;
         }
-        if (@event.IsActionPressed(EventMoveRight))
+        if (Input.IsActionPressed(EventMoveDowm))
         {
-            GD.Print("Right");
+            Result.Y += 1;
         }
+        return Result;
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        base._PhysicsProcess(delta);
+        Position+=GetMovementVector()*MovementSpeed*(float)delta;
     }
 
 }
