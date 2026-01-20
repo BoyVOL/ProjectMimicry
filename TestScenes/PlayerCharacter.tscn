@@ -27,4 +27,5 @@ texture = ExtResource("2_7wbrp")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(2, -3)
 scale = Vector2(11.9219, 8.95313)
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_0evi2")

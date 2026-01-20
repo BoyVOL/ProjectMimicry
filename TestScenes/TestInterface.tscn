@@ -23,7 +23,9 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="AutoscalingViewport" type="SubViewport" parent="SubViewportContainer" node_paths=PackedStringArray("ScalingSource")]
+handle_input_locally = false
 size = Vector2i(1153, 646)
+render_target_update_mode = 4
 script = ExtResource("1_iqidg")
 ScalingSource = NodePath("../..")
 metadata/_custom_type_script = "uid://ocdra8ykfjf4"
