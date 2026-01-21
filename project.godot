@@ -28,7 +28,7 @@ project/assembly_name="ProjectMimicry"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/autoscaling_viewport_module/plugin.cfg")
+enabled=PackedStringArray("res://addons/autoscaling_viewport_module/plugin.cfg", "res://addons/multistate_sprite_module/plugin.cfg")
 
 [input]
 
