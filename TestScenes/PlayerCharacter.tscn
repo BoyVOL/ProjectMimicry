@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://btgm8j84i1q01" path="res://TestScenes/PlayerCharacter.cs" id="1_7wbrp"]
 [ext_resource type="Texture2D" uid="uid://b14v4bf7agsna" path="res://player model placeholder.png" id="2_7wbrp"]
 [ext_resource type="Script" uid="uid://bgw326ug5eaxt" path="res://addons/multistate_sprite_module/MultistateSprite2D/MultistateSprite2D.cs" id="3_0evi2"]
+[ext_resource type="Texture2D" uid="uid://i3iol6o36c8r" path="res://icon.svg" id="4_nl7gy"]
 
 [sub_resource type="Animation" id="Animation_7wbrp"]
 resource_name = "new_animation"
@@ -26,9 +27,6 @@ _data = {
 &"new_animation": SubResource("Animation_7wbrp")
 }
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_0evi2"]
-diffuse_texture = ExtResource("2_7wbrp")
-
 [sub_resource type="Gradient" id="Gradient_7wbrp"]
 offsets = PackedFloat32Array(0, 0.753247)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -51,10 +49,11 @@ libraries = {
 [node name="Icon" type="Sprite2D" parent="."]
 texture_filter = 3
 position = Vector2(0, 41)
-scale = Vector2(11.3108, 11.0707)
-texture = SubResource("CanvasTexture_0evi2")
+scale = Vector2(1, 0.979)
+texture = ExtResource("2_7wbrp")
 vframes = 2
 script = ExtResource("3_0evi2")
+States = [ExtResource("2_7wbrp"), ExtResource("4_nl7gy"), ExtResource("2_7wbrp"), ExtResource("4_nl7gy")]
 metadata/_custom_type_script = "uid://bgw326ug5eaxt"
 
 [node name="Camera2D" type="Camera2D" parent="."]
