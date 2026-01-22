@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://fk3fiflfldnn"]
+[gd_scene load_steps=10 format=3 uid="uid://fk3fiflfldnn"]
 
 [ext_resource type="Script" uid="uid://btgm8j84i1q01" path="res://TestScenes/PlayerCharacter.cs" id="1_7wbrp"]
 [ext_resource type="Texture2D" uid="uid://b14v4bf7agsna" path="res://player model placeholder.png" id="2_7wbrp"]
@@ -27,6 +27,9 @@ _data = {
 &"new_animation": SubResource("Animation_7wbrp")
 }
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_nl7gy"]
+diffuse_texture = ExtResource("2_7wbrp")
+
 [sub_resource type="Gradient" id="Gradient_7wbrp"]
 offsets = PackedFloat32Array(0, 0.753247)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -50,10 +53,10 @@ libraries = {
 texture_filter = 3
 position = Vector2(0, 41)
 scale = Vector2(1, 0.979)
-texture = ExtResource("2_7wbrp")
+texture = SubResource("CanvasTexture_nl7gy")
 vframes = 2
 script = ExtResource("3_0evi2")
-States = [ExtResource("2_7wbrp"), ExtResource("4_nl7gy"), ExtResource("2_7wbrp"), ExtResource("4_nl7gy")]
+States = [SubResource("CanvasTexture_nl7gy"), ExtResource("4_nl7gy"), ExtResource("2_7wbrp"), ExtResource("4_nl7gy")]
 metadata/_custom_type_script = "uid://bgw326ug5eaxt"
 
 [node name="Camera2D" type="Camera2D" parent="."]
