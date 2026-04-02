@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b31viqht11o54"]
+
+[ext_resource type="ArrayMesh" uid="uid://2evrcs3dmibg" path="res://Gridmap Test 2/3D Resources/FloorTile.obj" id="1_oqrsi"]
+
+[node name="GridMap" type="Node3D" unique_id=821551417]
+
+[node name="FloorTile" type="MeshInstance3D" parent="." unique_id=3772393]
+mesh = ExtResource("1_oqrsi")
