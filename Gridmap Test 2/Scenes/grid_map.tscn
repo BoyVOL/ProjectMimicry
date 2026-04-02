@@ -4,5 +4,5 @@
 
 [node name="GridMap" type="Node3D" unique_id=821551417]
 
-[node name="FloorTile" type="MeshInstance3D" parent="." unique_id=3772393]
+[node name="FloorTile" type="MeshInstance3D" parent="." unique_id=905548185]
 mesh = ExtResource("1_oqrsi")
