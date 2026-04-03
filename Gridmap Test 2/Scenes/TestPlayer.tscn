@@ -11,7 +11,7 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.7
 
-[node name="RigidBody3D" type="RigidBody3D" unique_id=770157897]
+[node name="TestPlayer" type="RigidBody3D" unique_id=770157897]
 physics_material_override = SubResource("PhysicsMaterial_hdolh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1444113786]
