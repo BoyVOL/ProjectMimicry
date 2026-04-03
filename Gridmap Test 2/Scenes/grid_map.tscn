@@ -2,7 +2,15 @@
 
 [ext_resource type="ArrayMesh" uid="uid://2evrcs3dmibg" path="res://Gridmap Test 2/3D Resources/FloorTile.obj" id="1_oqrsi"]
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_5txew"]
+data = PackedVector3Array(-10, 1, 10, -10, 0, 10, -10, 1, -10, -10, 1, -10, -10, 0, 10, -10, 0, -10, -10, 1, -10, -10, 0, -10, 10, 1, -10, 10, 1, -10, -10, 0, -10, 10, 0, -10, 10, 1, -10, 10, 0, -10, 10, 1, 10, 10, 1, 10, 10, 0, -10, 10, 0, 10, 10, 1, 10, 10, 0, 10, -10, 1, 10, -10, 1, 10, 10, 0, 10, -10, 0, 10, 10, 0, -10, -10, 0, -10, 10, 0, 10, 10, 0, 10, -10, 0, -10, -10, 0, 10, -10, 1, -10, 10, 1, -10, -10, 1, 10, -10, 1, 10, 10, 1, -10, 10, 1, 10)
+
 [node name="GridMap" type="Node3D" unique_id=821551417]
 
 [node name="FloorTile" type="MeshInstance3D" parent="." unique_id=905548185]
 mesh = ExtResource("1_oqrsi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="FloorTile" unique_id=1203622341]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FloorTile/StaticBody3D" unique_id=1305150454]
+shape = SubResource("ConcavePolygonShape3D_5txew")
