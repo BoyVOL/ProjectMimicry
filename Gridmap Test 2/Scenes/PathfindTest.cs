@@ -13,7 +13,6 @@ public partial class PathfindTest : RigidBody3D
         {
             Navigator.TargetPosition = PathfindTarget.GlobalPosition;
             NextPathPoint = Navigator.GetNextPathPosition();
-            GD.Print(NextPathPoint);
         }
         base._PhysicsProcess(delta);
     }
