@@ -7,6 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_le2td"]
 
 [node name="PathfindTest" type="RigidBody3D" unique_id=826261667 node_paths=PackedStringArray("Navigator")]
+lock_rotation = true
 script = ExtResource("1_hnbx5")
 Navigator = NodePath("NavigationAgent3D")
 

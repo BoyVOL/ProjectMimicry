@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://62tqph1g2ypi"]
 
+[ext_resource type="Script" uid="uid://c5nssfqybwav2" path="res://Gridmap Test 2/Scenes/TestPlayer.cs" id="1_edaej"]
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdolh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hdolh"]
@@ -13,6 +15,8 @@ ambient_light_energy = 0.7
 
 [node name="TestPlayer" type="RigidBody3D" unique_id=770157897]
 physics_material_override = SubResource("PhysicsMaterial_hdolh")
+lock_rotation = true
+script = ExtResource("1_edaej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1444113786]
 shape = SubResource("CapsuleShape3D_hdolh")
