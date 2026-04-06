@@ -11,10 +11,12 @@ public partial class TestPlayer : RigidBody3D
 
 	[Export]float MovementSpeed = 10;
 
-	[Export]float MoveP = 1;
+	[Export]float MoveP = 0.01F;
 	
-	[Export]float MoveI = 1;
-	[Export]float MoveD = 1;
+	[Export]float MoveI = 0.01F;
+	[Export]float MoveD = 0.01F;
+
+	[Export]float MoveImpulseClamp = 100F;
 
 	V3PID MovePID = new V3PID();
 
@@ -40,10 +42,13 @@ public partial class TestPlayer : RigidBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		ApplyImpulse(MovementSpeed*GetMovementVector());
 		MovePID.P = MoveP;
 		MovePID.I = MoveI;
 		MovePID.D = MoveD;
+		Vector3 DesiredSpeed = MovementSpeed*GetMovementVector();
+		Vector3 Error = DesiredSpeed - LinearVelocity;
+		Vector3 New = MovePID.newVector(Error,(float)delta);
+		ApplyImpulse(new Vector3(New.X, 0, New.Z));
 		base._PhysicsProcess(delta);
 	}
 
