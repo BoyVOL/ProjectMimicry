@@ -27,12 +27,8 @@ data = {
 }
 
 [node name="TestPlayer" parent="." unique_id=770157897 instance=ExtResource("2_4c0ap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.08578, 58.72104, -12.15958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.08578, 15.101067, -12.15958)
 linear_damp_mode = 1
-MovementSpeed = 30.0
-MoveP = 0.5
-MoveI = 0.001
-MoveD = 0.001
 
 [node name="PathfindTest" parent="." unique_id=826261667 node_paths=PackedStringArray("PathfindTarget") instance=ExtResource("3_le2td")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.54947, 3.1645377, 21.161896)
