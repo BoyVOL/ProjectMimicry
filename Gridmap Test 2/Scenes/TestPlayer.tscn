@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://62tqph1g2ypi"]
 
 [ext_resource type="Script" uid="uid://c5nssfqybwav2" path="res://Gridmap Test 2/Scenes/TestPlayer.cs" id="1_edaej"]
+[ext_resource type="Script" uid="uid://crbco3no25g33" path="res://Gridmap Test 2/Scenes/RigidBodyPid.cs" id="2_b4mh5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdolh"]
 
@@ -13,10 +14,11 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.7
 
-[node name="TestPlayer" type="RigidBody3D" unique_id=770157897]
+[node name="TestPlayer" type="RigidBody3D" unique_id=770157897 node_paths=PackedStringArray("PIDNode")]
 physics_material_override = SubResource("PhysicsMaterial_hdolh")
 lock_rotation = true
 script = ExtResource("1_edaej")
+PIDNode = NodePath("RigidBodyPID")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1444113786]
 shape = SubResource("CapsuleShape3D_hdolh")
@@ -28,3 +30,8 @@ mesh = SubResource("CapsuleMesh_4c0ap")
 transform = Transform3D(1, 0, 0, 0, 0.23968585, 0.9708505, 0, -0.9708505, 0.23968585, -1.5258789e-05, 16.23397, 2.0904617)
 environment = SubResource("Environment_hdolh")
 current = true
+
+[node name="RigidBodyPID" type="Node" parent="." unique_id=1770158312 node_paths=PackedStringArray("ControlledNode")]
+script = ExtResource("2_b4mh5")
+ControlledNode = NodePath("..")
+MovePID = Vector3(0.5, 0.001, 0.001)
