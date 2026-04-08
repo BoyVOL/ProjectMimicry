@@ -43,8 +43,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.7417, 6.329045, -234.3464
 PathfindTarget = NodePath("../TestPlayer")
 
 [node name="TrackingCamera" type="Camera3D" parent="." unique_id=1943337846 node_paths=PackedStringArray("TrackNode")]
-transform = Transform3D(1, -4.222196e-08, -3.239805e-08, 4.222196e-08, 0.25881907, 0.9659258, -3.239805e-08, -0.9659258, 0.25881907, 192.41908, 24.544048, -43.631165)
+transform = Transform3D(1, -4.222196e-08, -3.239805e-08, 4.222196e-08, 0.25881907, 0.9659258, -3.239805e-08, -0.9659258, 0.25881907, 192.41908, 44.54405, -43.631165)
 environment = SubResource("Environment_le2td")
 script = ExtResource("4_b4oce")
 TrackNode = NodePath("../TestPlayer")
-Offset = Vector3(0, 10, 2)
+Offset = Vector3(0, 30, 2)
