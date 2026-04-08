@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://62tqph1g2ypi"]
 
 [ext_resource type="Script" uid="uid://c5nssfqybwav2" path="res://Gridmap Test 2/Scenes/TestPlayer.cs" id="1_edaej"]
-[ext_resource type="Script" uid="uid://cngpj5tynx7bo" path="res://Gridmap Test 2/Scenes/MovePid.cs" id="2_n5yfv"]
+[ext_resource type="Script" uid="uid://cngpj5tynx7bo" path="res://addons/pid_nodes/MovePID/MovePid.cs" id="2_n5yfv"]
 [ext_resource type="Script" uid="uid://gyqf8mxem5i7" path="res://Gridmap Test 2/Scenes/PlayerControll.cs" id="3_n5yfv"]
-[ext_resource type="Script" uid="uid://buvji5lyracxu" path="res://Gridmap Test 2/Scenes/AnglePid.cs" id="4_afr03"]
+[ext_resource type="Script" uid="uid://buvji5lyracxu" path="res://addons/pid_nodes/AnglePID/AnglePid.cs" id="4_afr03"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdolh"]
 
@@ -31,18 +31,20 @@ transform = Transform3D(1, 0, 0, 0, 0.23968585, 0.9708505, 0, -0.9708505, 0.2396
 environment = SubResource("Environment_hdolh")
 current = true
 
-[node name="MovePID" type="Node" parent="." unique_id=1770158312 node_paths=PackedStringArray("ControlledNode")]
+[node name="PlayerControll" type="Node" parent="." unique_id=373332419 node_paths=PackedStringArray("PIDNode")]
+script = ExtResource("3_n5yfv")
+MovementSpeed = 30.0
+PIDNode = NodePath("../MovePid")
+
+[node name="AnglePid" type="Node" parent="." unique_id=1418367897 node_paths=PackedStringArray("ControlledNode")]
+script = ExtResource("4_afr03")
+ControlledNode = NodePath("..")
+PID = Vector3(2, 0.5, 0.2)
+metadata/_custom_type_script = "uid://buvji5lyracxu"
+
+[node name="MovePid" type="Node" parent="." unique_id=1990241004 node_paths=PackedStringArray("ControlledNode")]
 script = ExtResource("2_n5yfv")
 ControlledNode = NodePath("..")
 PID = Vector3(0.5, 5, 0.002)
 ExcludeY = true
-
-[node name="PlayerControll" type="Node" parent="." unique_id=373332419 node_paths=PackedStringArray("PIDNode")]
-script = ExtResource("3_n5yfv")
-MovementSpeed = 30.0
-PIDNode = NodePath("../MovePID")
-
-[node name="AnglePID" type="Node" parent="." unique_id=1855947366 node_paths=PackedStringArray("ControlledNode")]
-script = ExtResource("4_afr03")
-ControlledNode = NodePath("..")
-PID = Vector3(1, 0.5, 0.1)
+metadata/_custom_type_script = "uid://cngpj5tynx7bo"

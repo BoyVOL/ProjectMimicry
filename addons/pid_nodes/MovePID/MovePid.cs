@@ -2,8 +2,10 @@ using Godot;
 using System;
 using PID;
 
+[GlobalClass]
 public partial class MovePid : V3PIDNodeBase
 {
+    [Export] String Test;
     public Vector3 DesiredMove = Vector3.Zero;
 
 	public override void _PhysicsProcess(double delta)

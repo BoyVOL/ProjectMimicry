@@ -2,6 +2,8 @@ using Godot;
 using System;
 using PID;
 
+
+[GlobalClass]
 public partial class V3PIDNodeBase : Node
 {
     [Export] protected RigidBody3D ControlledNode = null;

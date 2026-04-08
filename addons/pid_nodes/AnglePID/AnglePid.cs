@@ -2,6 +2,8 @@ using Godot;
 using System;
 using PID;
 
+
+[GlobalClass]
 public partial class AnglePid : V3PIDNodeBase
 {
     public Quaternion DesiredAngle = Quaternion.FromEuler(Vector3.Zero);
