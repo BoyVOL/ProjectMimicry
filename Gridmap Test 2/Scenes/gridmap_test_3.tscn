@@ -3,6 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://7v3di2miblmn" path="res://Gridmap Test 2/3D Resources/GridMap.meshlib" id="1_hdolh"]
 [ext_resource type="PackedScene" uid="uid://62tqph1g2ypi" path="res://Gridmap Test 2/Scenes/TestPlayer.tscn" id="2_4c0ap"]
 [ext_resource type="PackedScene" uid="uid://buwpvhca2kokm" path="res://Gridmap Test 2/Scenes/PathfindTest.tscn" id="3_le2td"]
+[ext_resource type="Script" uid="uid://dib1cqqyk0slu" path="res://Gridmap Test 2/Scenes/TrackingCamera.cs" id="4_b4oce"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_hdolh"]
 vertices = PackedVector3Array(-18.5, 1.5, 48.5, 120.5, 1.5, 48.5, 120.5, 1.5, -11.25, 140.5, 1.5, -210.75, 140.5, 1.5, -270.5, -18.5, 1.5, -270.5, 142.75, 1.5, -11.5, 142.75, 1.5, -210.5, 181.5, 1.5, -230.75, 161.5, 1.5, -230.5, 161.5, 1.5, -210.75, 300.5, 1.5, -270.5, 181.5, 1.5, -270.5, 181.5, 1.5, -11.25, 181.5, 1.5, 48.5, 300.5, 1.5, 48.5, 159.25, 1.5, -210.5, 159.25, 1.5, -11.5)
@@ -11,6 +12,8 @@ vertices_per_polygon = 12.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_le2td"]
 rough = true
+
+[sub_resource type="Environment" id="Environment_le2td"]
 
 [node name="GridmapTest3" type="Node3D" unique_id=2088080436]
 
@@ -27,7 +30,7 @@ data = {
 }
 
 [node name="TestPlayer" parent="." unique_id=770157897 instance=ExtResource("2_4c0ap")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 204.08578, 15.101067, -12.15958)
+transform = Transform3D(0.9999956, 0.0028226431, -0.00095968996, -0.0028183782, 0.9999863, 0.004411408, 0.00097214396, -0.0044086804, 0.99998975, 192.41908, 14.544047, -16.586746)
 linear_damp_mode = 1
 
 [node name="PathfindTest" parent="." unique_id=826261667 node_paths=PackedStringArray("PathfindTarget") instance=ExtResource("3_le2td")]
@@ -38,3 +41,10 @@ PathfindTarget = NodePath("../TestPlayer")
 [node name="PathfindTest2" parent="." unique_id=1422851758 node_paths=PackedStringArray("PathfindTarget") instance=ExtResource("3_le2td")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.7417, 6.329045, -234.34644)
 PathfindTarget = NodePath("../TestPlayer")
+
+[node name="TrackingCamera" type="Camera3D" parent="." unique_id=1943337846 node_paths=PackedStringArray("TrackNode")]
+transform = Transform3D(1, -4.222196e-08, -3.239805e-08, 4.222196e-08, 0.25881907, 0.9659258, -3.239805e-08, -0.9659258, 0.25881907, 192.41908, 24.544048, -14.586746)
+environment = SubResource("Environment_le2td")
+script = ExtResource("4_b4oce")
+TrackNode = NodePath("../TestPlayer")
+Offset = Vector3(0, 10, 2)
