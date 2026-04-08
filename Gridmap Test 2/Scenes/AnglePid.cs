@@ -2,32 +2,21 @@ using Godot;
 using System;
 using PID;
 
-public partial class AnglePid : Node
+public partial class AnglePid : V3PIDNodeBase
 {
     public Quaternion DesiredAngle = Quaternion.FromEuler(Vector3.Zero);
-
-    [Export] RigidBody3D ControlledNode = null;
-
-	[Export]Vector3 AnglePID = new Vector3(0.01F,0.01F,0.01F);
-
-    [Export]public bool AngleExcludeX = false;
-    [Export]public bool AngleExcludeY = false;
-    [Export]public bool AngleExcludeZ = false;
-
-	[Export]float AngleImpulseClamp = 100F;
-
-	QPID AnglePIDControl = new QPID();
-
+    public AnglePid():base()
+    {
+        PIDControl = new QPID();
+    }
+    
 	public override void _PhysicsProcess(double delta)
 	{
         if(ControlledNode != null){
-                AnglePIDControl.P = AnglePID.X;
-                AnglePIDControl.I = AnglePID.Y;
-                AnglePIDControl.D = AnglePID.Z;
-                Vector3 Impulse = AnglePIDControl.newVector(ControlledNode.Quaternion,DesiredAngle,(float)delta);
-                if(AngleExcludeX) Impulse.X = 0;
-                if(AngleExcludeY) Impulse.Y = 0;
-                if (AngleExcludeZ) Impulse.Z = 0;
+                Vector3 Impulse = ((QPID)PIDControl).newVector(ControlledNode.Quaternion,DesiredAngle,(float)delta);
+                if(ExcludeX) Impulse.X = 0;
+                if(ExcludeY) Impulse.Y = 0;
+                if (ExcludeZ) Impulse.Z = 0;
                 ControlledNode.ApplyTorqueImpulse(Impulse);
         }
 		base._PhysicsProcess(delta);

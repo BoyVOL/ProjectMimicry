@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://buwpvhca2kokm"]
 
 [ext_resource type="Script" uid="uid://cu32jmn76pdwv" path="res://Gridmap Test 2/Scenes/PathfindTest.cs" id="1_hnbx5"]
-[ext_resource type="Script" uid="uid://crbco3no25g33" path="res://Gridmap Test 2/Scenes/RigidBodyPid.cs" id="2_6isyg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4c0ap"]
 
@@ -20,7 +19,3 @@ mesh = SubResource("CapsuleMesh_le2td")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=260148470]
 debug_enabled = true
 debug_path_custom_point_size = 14.0
-
-[node name="RigidBodyPID" type="Node" parent="." unique_id=320732792]
-script = ExtResource("2_6isyg")
-MovePID = Vector3(0.5, 0.001, 0.001)

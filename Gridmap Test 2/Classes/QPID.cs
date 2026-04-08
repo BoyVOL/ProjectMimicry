@@ -6,31 +6,8 @@ namespace PID
     public class QPID : BaseV3PID{
 
     
-        public QPID() : base()
-        {
-            
-        }
-    public QPID(float p, float i, float d): base(p, i, d)
-        {
-            
-        }
-
-    /// <summary>
-    /// Resets all error values
-    /// </summary>
-    public void Reset()
-    {
-        _PrevError = Vector3.Zero;
-        _ErrorIntegral = Vector3.Zero;
-    }
-
-    Vector3 UpdateWithError(Vector3 _Error,float delta)
-    {
-        _ErrorIntegral += _Error*delta;
-        Vector3 ErrorD = (_Error - _PrevError)/delta;
-        _PrevError = _Error;
-        return P*_Error+I*_ErrorIntegral+D*ErrorD;
-    }
+    public QPID() : base(){}
+    public QPID(float p, float i, float d): base(p, i, d) { }
 
     /// <summary>
     /// Generates new vector based on existing error, prev errors and delta
