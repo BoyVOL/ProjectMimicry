@@ -7,7 +7,6 @@ public partial class AnglePid : Node
     public Quaternion DesiredAngle = Quaternion.FromEuler(Vector3.Zero);
 
     [Export] RigidBody3D ControlledNode = null;
-    [Export] public bool AngleControl = false;
 
 	[Export]Vector3 AnglePID = new Vector3(0.01F,0.01F,0.01F);
 
@@ -22,8 +21,6 @@ public partial class AnglePid : Node
 	public override void _PhysicsProcess(double delta)
 	{
         if(ControlledNode != null){
-            if (AngleControl)
-            {
                 AnglePIDControl.P = AnglePID.X;
                 AnglePIDControl.I = AnglePID.Y;
                 AnglePIDControl.D = AnglePID.Z;
@@ -32,7 +29,6 @@ public partial class AnglePid : Node
                 if(AngleExcludeY) Impulse.Y = 0;
                 if (AngleExcludeZ) Impulse.Z = 0;
                 ControlledNode.ApplyTorqueImpulse(Impulse);
-            }
         }
 		base._PhysicsProcess(delta);
 	}

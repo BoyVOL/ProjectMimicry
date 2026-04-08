@@ -34,7 +34,6 @@ current = true
 [node name="MovePID" type="Node" parent="." unique_id=1770158312 node_paths=PackedStringArray("ControlledNode")]
 script = ExtResource("2_n5yfv")
 ControlledNode = NodePath("..")
-MoveControl = true
 MovePID = Vector3(0.5, 5, 0.01)
 MoveExcludeY = true
 
@@ -46,5 +45,4 @@ PIDNode = NodePath("../MovePID")
 [node name="AnglePID" type="Node" parent="." unique_id=1855947366 node_paths=PackedStringArray("ControlledNode")]
 script = ExtResource("4_afr03")
 ControlledNode = NodePath("..")
-AngleControl = true
 AnglePID = Vector3(1, 5, 0.2)

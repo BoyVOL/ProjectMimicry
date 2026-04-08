@@ -8,8 +8,6 @@ public partial class MovePid : Node
 
     public Vector3 DesiredMove = Vector3.Zero;
 
-    [Export] public bool MoveControl = false;
-
 	[Export]Vector3 MovePID = new Vector3(0.01F,0.01F,0.01F);
 
     [Export]public bool MoveExcludeX = false;
@@ -25,8 +23,6 @@ public partial class MovePid : Node
 	public override void _PhysicsProcess(double delta)
 	{
         if(ControlledNode != null){
-            if (MoveControl)
-            {
                 MovePIDControl.P = MovePID.X;
                 MovePIDControl.I = MovePID.Y;
                 MovePIDControl.D = MovePID.Z;
@@ -36,7 +32,6 @@ public partial class MovePid : Node
                 if(MoveExcludeY) MoveNew.Y = 0;
                 if (MoveExcludeZ) MoveNew.Z = 0;
                 ControlledNode.ApplyImpulse(MoveNew);
-            }
         }
 		base._PhysicsProcess(delta);
 	}
