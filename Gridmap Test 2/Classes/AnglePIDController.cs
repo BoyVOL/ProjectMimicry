@@ -1,10 +1,7 @@
-using Godot;
 using System;
+using Godot;
 
-/// <summary>
-/// Class implementing PID controller functional for Vector3
-/// </summary>
-public class V3PID
+public class QPID
 {
     public float P;
     public float I;
@@ -15,13 +12,13 @@ public class V3PID
     Vector3 _PrevError = Vector3.Zero;
     Vector3 _ErrorIntegral = Vector3.Zero;
 
-    public V3PID(){
+    public QPID(){
         P = 1;
         I = 1;
         D = 1;
     }
 
-    public V3PID(float p, float i, float d)
+    public QPID(float p, float i, float d)
     {
         P=p;
         I=i;
@@ -42,9 +39,15 @@ public class V3PID
     /// </summary>
     /// <param name="error">difference between actual vector and target vector</param>
     /// <param name="delta">Time interval</param>
-    public Vector3 newVector(Vector3 Current, Vector3 Desired, float delta)
+    public Vector3 newVector(Quaternion Current,Quaternion Desired, float delta)
     {
-        Vector3 _Error = Desired-Current*Scale;
+        Quaternion _QError = (Desired*Current.Inverse()).Normalized();
+        if(_QError.W < 0) _QError = -_QError;
+        Vector3 Axis = _QError.GetAxis().Normalized();
+        GD.Print(Axis);
+        double Angle =  _QError.GetAngle();
+        GD.Print(Angle);
+        Vector3 _Error = Axis * (float)Angle*Scale;
         _ErrorIntegral += _Error*delta;
         Vector3 ErrorD = (_Error - _PrevError)/delta;
         _PrevError = _Error;

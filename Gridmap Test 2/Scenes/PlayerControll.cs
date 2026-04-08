@@ -37,7 +37,7 @@ public partial class PlayerControll : Node
 	{
 		if(PIDNode != null)
 		{
-			PIDNode.DesiredVector = MovementSpeed*GetMovementVector();
+			PIDNode.DesiredMove = MovementSpeed*GetMovementVector();
 		}
 		base._PhysicsProcess(delta);
 	}

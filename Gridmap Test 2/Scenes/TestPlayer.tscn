@@ -17,7 +17,6 @@ ambient_light_energy = 0.7
 
 [node name="TestPlayer" type="RigidBody3D" unique_id=770157897]
 physics_material_override = SubResource("PhysicsMaterial_hdolh")
-lock_rotation = true
 script = ExtResource("1_edaej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1444113786]
@@ -34,7 +33,11 @@ current = true
 [node name="RigidBodyPID" type="Node" parent="." unique_id=1770158312 node_paths=PackedStringArray("ControlledNode")]
 script = ExtResource("2_b4mh5")
 ControlledNode = NodePath("..")
-MovePID = Vector3(0.5, 0.001, 0.001)
+MoveControl = true
+MovePID = Vector3(0.5, 5, 0.001)
+MoveExcludeY = true
+AngleControl = true
+AnglePID = Vector3(0.9, 5, 0.2)
 
 [node name="PlayerControll" type="Node" parent="." unique_id=373332419 node_paths=PackedStringArray("PIDNode")]
 script = ExtResource("3_n5yfv")
