@@ -1,28 +1,13 @@
 using System;
 using Godot;
 
-public class QPID
+namespace PID
 {
-    public float P;
-    public float I;
-    public float D;
+    public class QPID : BasePID{
 
-    public float Scale = 1;
-
-    Vector3 _PrevError = Vector3.Zero;
-    Vector3 _ErrorIntegral = Vector3.Zero;
-
-    public QPID(){
-        P = 1;
-        I = 1;
-        D = 1;
-    }
-
-    public QPID(float p, float i, float d)
+    public QPID(float p, float i, float d): base(p, i, d)
     {
-        P=p;
-        I=i;
-        D=d;
+        
     }
 
     /// <summary>
@@ -53,4 +38,5 @@ public class QPID
         _PrevError = _Error;
         return P*_Error+I*_ErrorIntegral+D*ErrorD;
     }
+}
 }
