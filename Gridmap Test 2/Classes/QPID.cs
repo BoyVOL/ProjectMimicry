@@ -3,12 +3,17 @@ using Godot;
 
 namespace PID
 {
-    public class QPID : BasePID{
+    public class QPID : BaseV3PID{
 
+    
+        public QPID() : base()
+        {
+            
+        }
     public QPID(float p, float i, float d): base(p, i, d)
-    {
-        
-    }
+        {
+            
+        }
 
     /// <summary>
     /// Resets all error values
@@ -17,6 +22,14 @@ namespace PID
     {
         _PrevError = Vector3.Zero;
         _ErrorIntegral = Vector3.Zero;
+    }
+
+    Vector3 UpdateWithError(Vector3 _Error,float delta)
+    {
+        _ErrorIntegral += _Error*delta;
+        Vector3 ErrorD = (_Error - _PrevError)/delta;
+        _PrevError = _Error;
+        return P*_Error+I*_ErrorIntegral+D*ErrorD;
     }
 
     /// <summary>
@@ -29,14 +42,9 @@ namespace PID
         Quaternion _QError = (Desired*Current.Inverse()).Normalized();
         if(_QError.W < 0) _QError = -_QError;
         Vector3 Axis = _QError.GetAxis().Normalized();
-        GD.Print(Axis);
         double Angle =  _QError.GetAngle();
-        GD.Print(Angle);
         Vector3 _Error = Axis * (float)Angle*Scale;
-        _ErrorIntegral += _Error*delta;
-        Vector3 ErrorD = (_Error - _PrevError)/delta;
-        _PrevError = _Error;
-        return P*_Error+I*_ErrorIntegral+D*ErrorD;
+        return UpdateWithError(_Error,delta);
     }
 }
 }

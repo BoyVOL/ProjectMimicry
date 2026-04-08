@@ -6,7 +6,7 @@ namespace PID
     /// <summary>
     /// Class implementing PID controller functional for Vector3
     /// </summary>
-    public class V3PID : BasePID
+    public class V3PID : BaseV3PID
     {
     
         public V3PID() : base()
@@ -19,15 +19,6 @@ namespace PID
         }
 
         /// <summary>
-        /// Resets all error values
-        /// </summary>
-        public void Reset()
-        {
-            _PrevError = Vector3.Zero;
-            _ErrorIntegral = Vector3.Zero;
-        }
-
-        /// <summary>
         /// Generates new vector based on existing error, prev errors and delta
         /// </summary>
         /// <param name="error">difference between actual vector and target vector</param>
@@ -35,10 +26,7 @@ namespace PID
         public Vector3 newVector(Vector3 Current, Vector3 Desired, float delta)
         {
             Vector3 _Error = Desired-Current*Scale;
-            _ErrorIntegral += _Error*delta;
-            Vector3 ErrorD = (_Error - _PrevError)/delta;
-            _PrevError = _Error;
-            return P*_Error+I*_ErrorIntegral+D*ErrorD;
+            return UpdateWithError(_Error,delta);
         }
     }
 }

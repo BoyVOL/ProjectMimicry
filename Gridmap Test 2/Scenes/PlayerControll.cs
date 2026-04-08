@@ -11,7 +11,7 @@ public partial class PlayerControll : Node
 
 	[Export]float MovementSpeed = 10;
 
-	[Export] RigidBodyPid PIDNode = null;
+	[Export] MovePid PIDNode = null;
 
 	public Vector3 GetMovementVector()
 	{
