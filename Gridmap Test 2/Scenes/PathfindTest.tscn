@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://buwpvhca2kokm"]
 
 [ext_resource type="Script" uid="uid://cu32jmn76pdwv" path="res://Gridmap Test 2/Scenes/PathfindTest.cs" id="1_hnbx5"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_8wbjr"]
+[ext_resource type="Script" uid="uid://c1vp0ojjvaby1" path="res://addons/godot_state_charts/parallel_state.gd" id="3_8wbjr"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_towwu"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_sw6ft"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4c0ap"]
 
@@ -19,3 +23,22 @@ mesh = SubResource("CapsuleMesh_le2td")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=260148470]
 debug_enabled = true
 debug_path_custom_point_size = 14.0
+
+[node name="StateChart" type="Node" parent="." unique_id=1789524592]
+script = ExtResource("2_8wbjr")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="ParallelState" type="Node" parent="StateChart" unique_id=340583477]
+script = ExtResource("3_8wbjr")
+
+[node name="AtomicState" type="Node" parent="StateChart/ParallelState" unique_id=1104016418]
+script = ExtResource("4_towwu")
+
+[node name="Transition" type="Node" parent="StateChart/ParallelState/AtomicState" unique_id=527662745]
+script = ExtResource("5_sw6ft")
+to = NodePath("../../AtomicState2")
+event = &"test"
+delay_in_seconds = "0.0"
+
+[node name="AtomicState2" type="Node" parent="StateChart/ParallelState" unique_id=518425293]
+script = ExtResource("4_towwu")

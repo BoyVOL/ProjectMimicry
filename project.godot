@@ -36,7 +36,7 @@ project/assembly_name="ProjectMimicry"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/autoscaling_viewport_module/plugin.cfg", "res://addons/b3rdpscam/plugin.cfg", "res://addons/multistate_sprite_module/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/pid_nodes/plugin.cfg")
+enabled=PackedStringArray("res://addons/autoscaling_viewport_module/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/multistate_sprite_module/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/pid_nodes/plugin.cfg")
 
 [input]
 
