@@ -24,7 +24,7 @@ public partial class MouseCamera : Camera3D
         if(MousePosition.X > ViewRect.Size.X) MousePosition.X = ViewRect.Size.X;
         if(MousePosition.Y > ViewRect.Size.Y) MousePosition.Y = ViewRect.Size.Y;
         Vector2 Shift = MousePosition - Center;
-        Position = new Vector3(Shift.X*scale, -Shift.Y*scale, 0);
+        Position = new Vector3(Shift.X*scale, Position.Y, Shift.Y*scale);
         base._Process(delta);
     }
 }
