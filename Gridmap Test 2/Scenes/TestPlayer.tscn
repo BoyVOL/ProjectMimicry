@@ -1,18 +1,19 @@
 [gd_scene format=3 uid="uid://62tqph1g2ypi"]
 
+[ext_resource type="Script" uid="uid://c5nssfqybwav2" path="res://Gridmap Test 2/Scenes/TestPlayer.cs" id="1_edaej"]
+[ext_resource type="Script" uid="uid://cngpj5tynx7bo" path="res://addons/pid_nodes/MovePID/MovePid.cs" id="2_n5yfv"]
+[ext_resource type="Script" uid="uid://gyqf8mxem5i7" path="res://Gridmap Test 2/Scenes/PlayerControll.cs" id="3_n5yfv"]
+[ext_resource type="Script" uid="uid://buvji5lyracxu" path="res://addons/pid_nodes/AnglePID/AnglePid.cs" id="4_afr03"]
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hdolh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hdolh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4c0ap"]
 
-[sub_resource type="Environment" id="Environment_hdolh"]
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.7
-
 [node name="TestPlayer" type="RigidBody3D" unique_id=770157897]
 physics_material_override = SubResource("PhysicsMaterial_hdolh")
+script = ExtResource("1_edaej")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1444113786]
 shape = SubResource("CapsuleShape3D_hdolh")
@@ -20,7 +21,20 @@ shape = SubResource("CapsuleShape3D_hdolh")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1700303353]
 mesh = SubResource("CapsuleMesh_4c0ap")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1786254644]
-transform = Transform3D(1, 0, 0, 0, 0.23968585, 0.9708505, 0, -0.9708505, 0.23968585, -1.5258789e-05, 16.23397, 2.0904617)
-environment = SubResource("Environment_hdolh")
-current = true
+[node name="PlayerControll" type="Node" parent="." unique_id=373332419 node_paths=PackedStringArray("PIDNode")]
+script = ExtResource("3_n5yfv")
+MovementSpeed = 30.0
+PIDNode = NodePath("../MovePid")
+
+[node name="AnglePid" type="Node" parent="." unique_id=1418367897 node_paths=PackedStringArray("ControlledNode")]
+script = ExtResource("4_afr03")
+ControlledNode = NodePath("..")
+PID = Vector3(2, 0.5, 0.2)
+metadata/_custom_type_script = "uid://buvji5lyracxu"
+
+[node name="MovePid" type="Node" parent="." unique_id=1990241004 node_paths=PackedStringArray("ControlledNode")]
+script = ExtResource("2_n5yfv")
+ControlledNode = NodePath("..")
+PID = Vector3(0.3, 5, 0.001)
+ExcludeY = true
+metadata/_custom_type_script = "uid://cngpj5tynx7bo"
