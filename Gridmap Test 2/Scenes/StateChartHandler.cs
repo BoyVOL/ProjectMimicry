@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using GodotStateCharts;
+using System.ComponentModel;
 
 public partial class StateChartHandler : Node
 {
@@ -14,7 +15,6 @@ public partial class StateChartHandler : Node
         {
             Chart = StateChart.Of(ChartNode);
         }
-        GD.Print(Chart.ToString());
         base._EnterTree();
     }
 }

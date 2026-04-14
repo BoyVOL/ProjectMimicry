@@ -58,11 +58,14 @@ tween_resource = SubResource("Resource_vy44c")
 follow_offset = Vector3(0, 20, 0)
 follow_damping = true
 follow_damping_value = Vector3(0.02, 0.02, 0.02)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=693112642]
 physics_interpolation_mode = 1
 transform = Transform3D(1, 0, 0, 0, 0.09297888, 0.99566805, 0, -0.99566805, 0.09297888, 173.26135, 34.54405, -53.300854)
+top_level = true
 environment = SubResource("Environment_if0qm")
 script = ExtResource("6_4bfqn")
 scale = 0.04

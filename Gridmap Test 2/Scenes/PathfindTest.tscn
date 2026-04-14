@@ -40,14 +40,9 @@ script = ExtResource("5_sw6ft")
 to = NodePath("../../AtomicState2")
 delay_in_seconds = "0.0"
 
-[node name="Transition2" type="Node" parent="StateChart/ParallelState/AtomicState" unique_id=186714882]
-script = ExtResource("5_sw6ft")
-to = NodePath("../../AtomicState2")
-delay_in_seconds = "0.0"
-
 [node name="AtomicState2" type="Node" parent="StateChart/ParallelState" unique_id=518425293]
 script = ExtResource("4_towwu")
 
-[node name="StateChartHandler" type="Node" parent="." unique_id=534691243 node_paths=PackedStringArray("StateChartExt")]
+[node name="StateChartHandler" type="Node" parent="." unique_id=534691243 node_paths=PackedStringArray("ChartNode")]
 script = ExtResource("6_dcdca")
-StateChartExt = NodePath("../StateChart")
+ChartNode = NodePath("../StateChart")
