@@ -5,15 +5,16 @@ using System.ComponentModel;
 
 public partial class StateChartHandler : Node
 {
-    [Export] public Node ChartNode = null;
+    [Export] public Node StateNode = null;
 
-    StateChart Chart = null;
+    StateChartState State = null;
 
     public override void _EnterTree()
     {
-        if (ChartNode != null)
+        if (StateNode != null)
         {
-            Chart = StateChart.Of(ChartNode);
+            State = StateChartState.Of(StateNode);
+            State.StateEntered += () => GD.Print("Entered!");
         }
         base._EnterTree();
     }

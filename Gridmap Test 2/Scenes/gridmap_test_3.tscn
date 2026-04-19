@@ -68,7 +68,6 @@ transform = Transform3D(1, 0, 0, 0, 0.09297888, 0.99566805, 0, -0.99566805, 0.09
 top_level = true
 environment = SubResource("Environment_if0qm")
 script = ExtResource("6_4bfqn")
-scale = 0.04
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=911555802]
 process_priority = 300
