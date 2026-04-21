@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkf1e240ouleb"
-path="res://.godot/imported/history_state.svg-7ed355ddc4d844fa3139e70c23187edd.ctex"
+uid="uid://dsa1nco51br8d"
+path="res://.godot/imported/parallel_state.svg-9abd70ef0b76fe9cd54be9605ada51fe.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/godot_state_charts/history_state.svg"
-dest_files=["res://.godot/imported/history_state.svg-7ed355ddc4d844fa3139e70c23187edd.ctex"]
+source_file="res://addons/statechartsexpancion/godot_state_charts/parallel_state.svg"
+dest_files=["res://.godot/imported/parallel_state.svg-9abd70ef0b76fe9cd54be9605ada51fe.ctex"]
 
 [params]
 

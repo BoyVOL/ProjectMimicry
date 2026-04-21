@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vfbywtgh66nb"
-path="res://.godot/imported/state_chart.svg-5c268dd045b20d73dfacd5cdf7606676.ctex"
+uid="uid://bbudjoa3ds4qj"
+path="res://.godot/imported/compound_state.svg-89215557a937470fe39e0a8ec87202c1.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/godot_state_charts/state_chart.svg"
-dest_files=["res://.godot/imported/state_chart.svg-5c268dd045b20d73dfacd5cdf7606676.ctex"]
+source_file="res://addons/statechartsexpancion/godot_state_charts/compound_state.svg"
+dest_files=["res://.godot/imported/compound_state.svg-89215557a937470fe39e0a8ec87202c1.ctex"]
 
 [params]
 

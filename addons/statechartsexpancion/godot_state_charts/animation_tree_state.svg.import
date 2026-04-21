@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnsri4fr2bbu0"
-path="res://.godot/imported/state_chart_debugger.svg-84b90904efaf4dffb8ff9ef4bed14dd2.ctex"
+uid="uid://3wqyduuj0fq"
+path="res://.godot/imported/animation_tree_state.svg-527674e321cb325fb070584585328a4c.ctex"
 metadata={
 "has_editor_variant": true,
 "vram_texture": false
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/godot_state_charts/utilities/state_chart_debugger.svg"
-dest_files=["res://.godot/imported/state_chart_debugger.svg-84b90904efaf4dffb8ff9ef4bed14dd2.ctex"]
+source_file="res://addons/statechartsexpancion/godot_state_charts/animation_tree_state.svg"
+dest_files=["res://.godot/imported/animation_tree_state.svg-527674e321cb325fb070584585328a4c.ctex"]
 
 [params]
 
