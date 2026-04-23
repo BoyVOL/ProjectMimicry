@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ocdra8ykfjf4" path="res://addons/autoscaling_viewport_module/AutoscalingViewport/AutoscalingViewport.cs" id="1_40u6e"]
 [ext_resource type="PackedScene" uid="uid://cwj7wpixa6pwt" path="res://Gridmap Test 2/Scenes/gridmap_test_3.tscn" id="2_40u6e"]
+[ext_resource type="PackedScene" uid="uid://bcwkugn6v3oy7" path="res://addons/statechartsexpancion/godot_state_charts/utilities/state_chart_debugger.tscn" id="3_xv3ax"]
 
 [node name="GridmapTest2ui" type="Control" unique_id=1654446319]
 layout_mode = 3
@@ -28,3 +29,14 @@ ScalingSource = NodePath("..")
 metadata/_custom_type_script = "uid://ocdra8ykfjf4"
 
 [node name="GridmapTest3" parent="SubViewportContainer/AutoscalingViewport" unique_id=2088080436 instance=ExtResource("2_40u6e")]
+
+[node name="StateChartDebugger" parent="." unique_id=1983812955 instance=ExtResource("3_xv3ax")]
+layout_mode = 1
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 411.0
+offset_bottom = 280.0
+grow_horizontal = 1
+grow_vertical = 1
+initial_node_to_watch = NodePath("../SubViewportContainer/AutoscalingViewport/GridmapTest3/PathfindTest")
