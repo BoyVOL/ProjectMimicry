@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bjcyq0jgswi3n"]
 
 [ext_resource type="Script" uid="uid://ocdra8ykfjf4" path="res://addons/autoscaling_viewport_module/AutoscalingViewport/AutoscalingViewport.cs" id="1_40u6e"]
-[ext_resource type="PackedScene" uid="uid://cwj7wpixa6pwt" path="res://Gridmap Test 2/Scenes/gridmap_test_3.tscn" id="2_xv3ax"]
+[ext_resource type="PackedScene" uid="uid://cwj7wpixa6pwt" path="res://Gridmap Test 2/Scenes/gridmap_test_3.tscn" id="2_40u6e"]
 
 [node name="GridmapTest2ui" type="Control" unique_id=1654446319]
 layout_mode = 3
@@ -12,12 +12,19 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1391325776]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AutoscalingViewport" type="SubViewport" parent="SubViewportContainer" unique_id=662962344]
+[node name="AutoscalingViewport" type="SubViewport" parent="SubViewportContainer" unique_id=662962344 node_paths=PackedStringArray("ScalingSource")]
+handle_input_locally = false
+size = Vector2i(800, 600)
+render_target_update_mode = 4
 script = ExtResource("1_40u6e")
+ScalingSource = NodePath("..")
 metadata/_custom_type_script = "uid://ocdra8ykfjf4"
 
-[node name="GridmapTest3" parent="SubViewportContainer/AutoscalingViewport" unique_id=2088080436 instance=ExtResource("2_xv3ax")]
+[node name="GridmapTest3" parent="SubViewportContainer/AutoscalingViewport" unique_id=2088080436 instance=ExtResource("2_40u6e")]
